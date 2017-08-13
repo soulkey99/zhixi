@@ -1,0 +1,16 @@
+<div>
+  <div *ngFor='let question of questions' (click)="onSelectQuestion(question)">
+    <div class="homework" id="homeworkDiv">
+      <!--<div class="status">
+        <div *ngIf="question.status=='finished'&&question.point>=100" class="qualified">合格</div>
+        <div *ngIf="question.status=='finished'&&question.point<100" class="unqualified">不合格</div>
+        <div *ngIf="question.status=='pending'" class="pending">未完成</div>
+      </div>-->
+      <div class="content" [innerHTML]="question.info.content.split('$$').join('$')"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="hasMore">
+  <button (click)="getMore()">加载更多</button>
+</div>

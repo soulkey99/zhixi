@@ -1,0 +1,23 @@
+.left {
+    width: 40%;
+    height: 40%;
+    text-align: center;
+}
+.right {
+    float: left;
+    width: 60%;
+}
+.kind {
+    float: left;
+    margin: 15px;
+}
+.colorBlock {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: #666666;
+    margin-right: 5px;
+}
+.num {
+    float: left;
+}

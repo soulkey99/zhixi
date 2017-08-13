@@ -1,0 +1,81 @@
+html,body {width: 100%;overflow: hidden;margin: 0px auto;font-size: 16px;background-color: #f0f2f6; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+a, input, div{ -webkit-tap-highlight-color: rgba(0,0,0,0); }
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+fieldset, img { border:0; }
+.main {
+    width: 80%;
+    overflow-y: scroll;
+    margin: 5% auto 5% auto;
+    background-color: white;
+    padding: 5%;
+    color: #828b97;
+    font-size: 1.1rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.MathJax {
+    font-size: 2rem !important;
+}
+.questionImg {
+    display: block !important;
+    width: 90% !important;
+    height: auto !important;
+}
+.errorQuestions {
+    width: 90%;
+    margin: 5% auto 5% auto;
+}
+.errorQuestions img{
+    width: 4%;
+    vertical-align: middle;
+}
+.errorQuestions span{
+    font-size: 1rem;
+    margin-left: 10px;
+    vertical-align: middle;
+    color: #535860;
+}
+.student {
+    width: 90%;
+    margin: 5% auto 5% auto;
+    display: flex;
+}
+.student .left{
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+.student .right{
+    width: 80%;
+    float: left;
+}
+.student .right .name{
+    font-size: 1.1rem;
+    color: #828b97;
+    line-height: 2;
+}
+.student .right .score{
+    font-size: 0.9rem;
+    color: #acb8c7;
+}
+.student img{
+    width: 80%;
+    border-radius: 10rem;
+    margin-right: 10px;
+}
+/*4 4s*/
+@media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){
+    html { font-size: 14px; }
+}
+/* 兼容iphone5 */
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+    html { font-size: 14px; }
+}
+/*6*/
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+    html { font-size: 16px; }
+}
+/*6+*/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+    html { font-size: 18px; }
+}

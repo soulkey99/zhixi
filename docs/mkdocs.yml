@@ -1,0 +1,34 @@
+site_name: 智习app接口文档
+site_url:
+repo_url:
+repo_name: Gitlab
+site_description: api document for zhixi app.
+site_author: menglei
+site_favicon: favicon.ico
+copyright: null
+docs_dir: ./
+site_dir: ../byzhixi/public/api
+theme: mkdocs
+pages:
+ - 目录: 'home.markdown'
+ - 基本信息: 'basic_info.markdown'
+ - 用户: 'user_info.markdown'
+ - 教师: 'teacher_info.markdown'
+ - 学生: 'student_info.markdown'
+ - 家长: 'parent_info.markdown'
+ - 文件: 'file_info.markdown'
+ - 地理位置: 'geo_info.markdown'
+ - 习题: 'study_info.markdown' 
+ - 其他: 
+   - 其他: 'other/other_info.markdown'
+   - wxDemo1: 'other/wxDemo1.markdown'
+   - wxDemo2: 'other/wxDemo2.markdown'
+
+extra:
+    version: 1.0
+use_directory_urls: true
+markdown_extensions:
+    - smarty
+    - toc:
+        permalink: True
+    - sane_lists

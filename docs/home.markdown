@@ -1,0 +1,12 @@
+# 智习app 接口文档 API DOC [查看格式化版]()
+## [基本信息](./basic_info.markdown)
+## [用户相关](./user_info.markdown)
+## [教师相关](./teacher_info.markdown)
+## [学生相关](./student_info.markdown)
+## [家长相关](./parent_info.markdown)
+## [练习相关](./study_info.markdown)
+## [文件相关](./file_info.markdown)
+## [地理位置相关](./geo_info.markdown)
+## [其他接口](./other/other_info.markdown)
+## [微信demo](./other/wxDemo1.markdown)
+

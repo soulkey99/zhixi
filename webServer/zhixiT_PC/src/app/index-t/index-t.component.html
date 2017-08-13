@@ -1,0 +1,23 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+  <header class="mdl-layout__header header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">索课数学</span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <span (click)="onSelectTodolist()" class="mdl-layout__tab is-active"><i class="material-icons">class</i>待办事项</span>
+      <span (click)="onSelectClassManagement()" class="mdl-layout__tab"><i class="material-icons">dashboard</i>班级管理</span>
+      <span (click)="onSelectPersonalCenter()" class="mdl-layout__tab"><i class="material-icons">account_box</i>个人中心</span>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">菜单</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="" (click)="onSelectLogin()">登陆</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,53 @@
+.main {
+    width: 1000px;
+    margin: 0px auto;
+}
+.book {
+    padding: 2%;
+    text-align: center;
+    cursor: pointer;
+}
+.book img {
+    width: 70%;
+}
+.bookTitle {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #535860;
+    margin-top: 10px;
+}
+.search {
+    width: 100%;
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.search .left {
+    width: 20%;
+    float: left;
+    text-align: left;
+    border: 1px black solid;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    padding: 5px;
+    text-align: center;
+}
+.search .left img {
+    width: 20%;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.search .left span {
+    vertical-align: middle;
+}
+.search .right {
+    width: 50%;
+    float: right;
+}
+select {
+    border-radius: 5px;
+    width: 29%;
+    padding: 2%;
+    color: #535860;
+}

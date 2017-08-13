@@ -1,0 +1,88 @@
+{
+  "apps": [
+    {
+      "name": "zxapp",
+      "cwd": "/home/being/byzhixi/appServer",
+      "script": "app.js",
+      "watch": false,
+      "ignore_watch": [
+        "public"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "merge_logs": true,
+      "error_file": "/home/being/byzhixi/public/console.log",
+      "out_file": "/home/being/byzhixi/public/console.log",
+      "instance": 1,
+      "max_memory_restart": "1G",
+      "max_restarts": 0,
+      "exec_mode": "cluster",
+      "autorestart": true,
+      "exec_interpreter": "node"
+    },
+    {
+      "name": "zxfile",
+      "cwd": "/home/being/byzhixi/fileServer",
+      "script": "app.js",
+      "watch": false,
+      "ignore_watch": [
+        "public"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "merge_logs": true,
+      "error_file": "/home/being/byzhixi/public/console.log",
+      "out_file": "/home/being/byzhixi/public/console.log",
+      "instance": 1,
+      "max_memory_restart": "1G",
+      "max_restarts": 0,
+      "exec_mode": "cluster",
+      "autorestart": true,
+      "exec_interpreter": "node"
+    },
+    {
+      "name": "zxmqtt",
+      "cwd": "/home/being/byzhixi/mqttServer",
+      "script": "app.js",
+      "watch": false,
+      "ignore_watch": [
+        "public"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "merge_logs": true,
+      "error_file": "/home/being/byzhixi/public/console.log",
+      "out_file": "/home/being/byzhixi/public/console.log",
+      "instance": 1,
+      "max_memory_restart": "1G",
+      "max_restarts": 0,
+      "exec_mode": "cluster",
+      "autorestart": true,
+      "exec_interpreter": "node"
+    },
+    {
+      "name": "zxadmin",
+      "cwd": "/home/being/byzhixi/adminServer",
+      "script": "app.js",
+      "watch": false,
+      "ignore_watch": [
+        "public"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "merge_logs": true,
+      "error_file": "/home/being/byzhixi/public/console.log",
+      "out_file": "/home/being/byzhixi/public/console.log",
+      "instance": 1,
+      "max_memory_restart": "1G",
+      "max_restarts": 0,
+      "exec_mode": "cluster",
+      "autorestart": true,
+      "exec_interpreter": "node"
+    }
+  ]
+}

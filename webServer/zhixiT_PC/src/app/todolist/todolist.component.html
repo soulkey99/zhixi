@@ -1,0 +1,14 @@
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--4-col" *ngFor='let todo of todolist'>
+		<div [attr.class]="todo.type=='schedule'?'todo_class':'todo_homework'">
+      <img style="width: 30px; height:34px; margin-top:-25px" [attr.src]="todo.type=='schedule'?'../assets/images/todolist/class.png':'../assets/images/todolist/homework.png'"/>
+			<div class="todo_description">课时{{todo.seq}}</div>
+			<div class="todo_description">{{util.convertTime2Str(todo.startAt)}}</div>
+			<div class="todo_class_name">{{todo.class_name}}</div>
+			<div *ngIf="todo.type=='schedule'"><button class="button" (click)="onAssignHomework(todo)">布置作业></button></div>
+			<div *ngIf="todo.type=='schedule'"><button class="button" (click)="onCheckHomeworkList(todo)">查看往期></button></div>
+      <div class="todo_homework_status" *ngIf="todo.type=='homework'">{{todo.student_finished}}人提交 {{todo.student_total-todo.student_finished}}人未提交</div>
+			<div *ngIf="todo.type=='homework'"><button class="button" (click)="onSelectHomeworkDetails(todo)">验收作业></button></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,198 @@
+html,body { width: 100%;overflow-x: hidden;margin: 0px auto;font-size: 16px;background-color: white; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+a, input, div{ -webkit-tap-highlight-color: rgba(0,0,0,0); }
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+fieldset, img { border:0; }
+html,body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.header {
+    width: 95vw;
+    height: 18vh;
+    background-color: #f0f2f6;
+    padding: 0 0 0 5%;
+}
+.numDiv {
+    width: 78vw;
+    height: 18vh;
+    line-height: 18vh;
+    overflow-x: scroll;
+    white-space: nowrap;
+    float: right;
+}
+.selectNum {
+    width: 18vw;
+    height: 18vh;
+    line-height: 18vh;
+    position: absolute;
+    left: 0px;
+    text-align: right;
+}
+.selectNumDiv {
+    position: absolute;
+    left: 0;
+    width: 17vw;
+    height: 18vh;
+    background-color: #f0f2f6;;
+}
+.selectSign {
+    position: absolute;
+    left: 9%;
+    top: 14.5%;
+    width: 1.5rem;
+    height: 4px;
+    background-color: #ec407a;
+    border-radius: 2px;
+}
+.selectNum .numIn {
+    margin: 0;
+}
+.numOut {
+    width: 2.6rem;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    border-radius: 0.5rem;
+    background-color: #c5cae8;
+    color: white;
+    text-align: center;
+    margin: 0 0.4rem 0 0.4rem;
+    display: inline-block;
+    font-size: 1rem;
+}
+.numIn {
+    background-color: #5c6bc0;
+}
+.main {
+    height: 73vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.question {
+    padding: 5% 5% 5% 5%;
+    color: #828b97;
+}
+.options {
+    padding: 0 5% 0 5%;
+}
+.option {
+    width: 100%;
+    background-color: #f0f2f6;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #828b97;
+    margin: 4% 0 4% 0;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.option img {
+    width: 6%;
+    height: auto;
+    vertical-align: text-top;
+    margin: 0 5% 0 5%;
+}
+.optionText {
+    width: 80%;
+    word-break: break-all;
+    word-wrap: break-word;
+    display: inline-table;
+}
+.footer {
+    position: absolute;
+    bottom: 0rem;
+    width: 100%;
+}
+.mainBtn {
+    height: 4rem;
+    line-height: 4rem;
+    color: white;
+    background-color: #5c6bc0;
+    text-align: center;
+}
+.questionImg {
+    display: block !important;
+    width: 90% !important;
+    height: auto !important;
+}
+.footer span {
+    font-size: 1rem;
+    vertical-align: middle;
+}
+.mainQuestion {
+    width: 90%;
+    height: 10rem;
+    overflow-y: scroll;
+    padding: 5%;
+    color: #828b97;
+    background-color: white;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.note {
+    position: absolute;
+    top: 17%;
+    z-index: 2000;
+    width: 100%;
+    text-align: center;
+}
+.noteText {
+    position: absolute;
+    top: 50%;
+    left: 16%;
+    right: 10%;
+    font-size: 1rem;
+    color: #666666;
+    width: 70%;
+    max-height: 32%;
+    overflow-y: scroll;
+    text-align: center;
+}
+.noteBtn {
+    position: absolute;
+    bottom: 10%;
+    font-size: 0.8rem;
+    color: #449de2;
+    width: 100%;
+    text-align: center;
+}
+.noteImg {
+    width: 80%;
+}
+.MathJax {
+    font-size: 2rem !important;
+}
+.questionImg {
+    display: block !important;
+    width: 90% !important;
+    height: auto !important;
+}
+.showMainQuestion {
+    -webkit-animation: show 0.1s forwards linear;
+}
+.hiddenMainQuestion {
+    -webkit-animation: hidden 0.1s forwards linear;
+}
+@-webkit-keyframes show {
+    0% {bottom: 0rem;}
+    100% {bottom: 0rem;}
+}
+@-webkit-keyframes hidden {
+    0% {bottom: 0rem;}
+    100% {bottom: 0rem;}
+}
+/*4 4s*/
+@media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){
+    html { font-size: 14px; }
+}
+/* 兼容iphone5 */
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+    html { font-size: 14px; }
+}
+/*6*/
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+    html { font-size: 16px; }
+}
+/*6+*/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+    html { font-size: 18px; }
+}

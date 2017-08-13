@@ -1,0 +1,21 @@
+<div>
+	<app-selected-class *ngIf="selectedClass" [classInfo]="selectedClass" [classMates]="selectedClassMates" (onCloseSelectedClassTriggered)="onCloseClassDetails()"
+		(onAssignHomeworkTriggered)="onAssignHomework($event)" (onCheckHomeworkTriggered)="onCheckHomework($event)" (onRemoveStudentTriggered)="onRemoveStudent($event)"
+		(onAcceptStudentTriggered)="onAcceptStudent($event)"></app-selected-class>
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--3-col" *ngFor="let classItem of list">
+			<div class="class_item" (click)="onSelectClass(classItem.class_id)">
+				<div class="class_name">{{classItem.class_name}}</div>
+				<div class="class_description">{{util.convertWeeklyScheduleStr(classItem.week_num, classItem.week)}}</div>
+				<div class="class_description">{{classItem.s_count}}人</div>
+				<img class="class_item_right_arrow" src="../assets/images/classlist/icon_right_arrow.png" />
+			</div>
+		</div>
+		<div class="mdl-cell mdl-cell--3-col">
+			<div style="background-color:#4289FF;width:100%; text-align:center;height:130px" (click)="onCreateClass()">
+				<img style="margin-top:30px" height="40px" width="40px" src="../assets/images/classlist/icon_add_class.png" />
+				<div style="margin:10px; margin-right:20px; color:#ffffff">创建班级</div>
+			</div>
+		</div>
+	</div>
+</div>

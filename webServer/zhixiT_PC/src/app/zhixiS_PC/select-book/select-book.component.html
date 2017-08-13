@@ -1,0 +1,6 @@
+<div class="mdl-grid" style="max-width: 1000px;min-height: 83.5vh;">
+  <div *ngFor="let book of books" class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--6-col-phone book" (click)="selectBook(book)">
+    <img [attr.src]="book.cover">
+    <div class="bookTitle">{{book.title==''?book.grade+book.subject:book.title}}</div>
+  </div>
+</div>

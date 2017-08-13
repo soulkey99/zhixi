@@ -1,0 +1,51 @@
+<div class="mdl-grid" style="max-width: 1000px;padding: 0px;">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer" style="max-width: 1000px;">
+    <div class="mdl-layout__drawer">
+      <div class="bookImg">
+        <img [attr.src]="cover">
+      </div>
+      <div class="moreBook" (click)="moreBooks()">更多书目</div>
+      <div *ngFor="let chapter of chapters" class="chapterDiv">
+        <div class="titleB" (click)="showChapter(chapter)">
+          <img *ngIf="!(cha_id==chapter.cha_id) || !isShow" class="arrow" src="../../assets/images/setHomework/rightArrow.png">
+          <img *ngIf="cha_id==chapter.cha_id && isShow" class="arrow" src="../../assets/images/setHomework/downArrow.png">
+          {{chapter.title}}
+        </div>
+        <div *ngIf="cha_id==chapter.cha_id && isShow">
+          <ul>
+            <li *ngFor="let section of chapter.sections" (click)="selectChapter(section)" class="titleS">{{section.title.substring(2,section.title.length)}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+          <div class="mdl-grid">
+            <div class="mdl-grid mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone classInfo">
+                <div class="mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone classInfoLeft">
+                  <div class="className">{{name}}</div>
+                  <div class="classTimeText">作业截止时间</div>
+                  <div class="classTime">
+                    <input class="datetime" type="date" [(ngModel)]=endAt (change)="saveEndat()">
+                  </div>
+                </div>
+                <div class="mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone classInfoRight">
+                  <div class="questionNum" (click)="openSelectedQuestion()">
+                    <img src="../../assets/images/setHomework/book.png"><span class="num">{{q_ids.length}}</span>题
+                  </div>
+                  <div>
+                    <img class="saveBtn" src="../../assets/images/setHomework/saveBtn.png" (click)="saveQuestions()">
+                  </div>
+                </div>
+            </div>
+            <div *ngFor="let question of questions" class="mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+              <div class="questionDiv">
+                <div class="question" [innerHTML]="question.content.split('$$').join('$')"></div>
+                <img class="addBtn" [attr.src]="question.isAdd==undefined?'../../assets/images/setHomework/addBtn.png':'../../assets/images/setHomework/delBtn.png'" (click)="addQuestion(question)">
+              </div>
+            </div>
+          </div>
+      </div>
+    </main>
+  </div>
+</div>

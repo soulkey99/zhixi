@@ -1,0 +1,42 @@
+
+.dialog {
+    width: 550px;
+    height: 400px;
+}
+
+.dialog .content {
+    top: 18px;
+    width: 100%;
+    height: 388px;
+}
+
+.close {
+    float: right;
+    width: 12px;
+}
+
+.close_div{
+    height:14px;
+}
+
+.info {
+    background-color: white;
+}
+
+.feedback {
+    position: absolute;
+    top: 20px;
+    background-color: white;
+    height: 420px;
+    width: 92%;
+    z-index: 500;
+}
+
+.question {
+    position: absolute;
+    top: 20px;
+    background-color: white;
+    height: 420px;
+    width: 92%;
+    z-index: 500;
+}

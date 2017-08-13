@@ -1,0 +1,224 @@
+.add-class-root {
+    clear: both;
+    margin: 0px auto;
+    width: 900px;
+    background: white;
+}
+
+.div-center {
+    margin: 0px auto;
+    width: 640px;
+}
+
+.title-ch {
+    color: #4289FF;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.title-en {
+    color: #828b97;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.div-classname {
+    margin-top: 20px;
+    /*margin: 0px auto;*/
+    /*width: 640px;*/
+    /*text-align: center;*/
+}
+
+.div-classname input {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+}
+
+.div-classname select {
+    width: 300px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+}
+
+.div-grade {
+    margin-top: 20px;
+}
+
+.div-grade select {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+}
+
+.div-date-text {
+    margin-top: 20px;
+}
+
+.start-date {
+    font-size: 14px;
+    color: #828b97;
+}
+
+.end-date {
+    font-size: 14px;
+    color: #828b97;
+    margin-left: 265px;
+}
+
+.div-date {
+     margin-top: 5px;
+}
+
+.start-date-input {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+}
+
+.end-date-input {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.div-start-time {
+    margin-top: 5px;
+}
+
+.start-time-select {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+}
+
+.duration-select {
+    width: 300px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+}
+
+.div-weekday-text {
+    margin-top: 20px;
+}
+
+.div-weekday {
+    margin-top: 5px;
+}
+
+.weekday {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: white;
+    margin: 3px;
+    font-size: 14px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+}
+
+.weekday-selected {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #4289FF;
+    margin: 3px;
+    font-size: 14px;
+    color: white;
+    border: #4289FF 1px solid;
+    border-radius: 5px;
+}
+
+.week-frequency-every {
+    font-size: 14px;
+    color: #828b97;
+    margin-left: 30px;
+}
+
+.week-frequency-every-selected {
+    font-size: 14px;
+    color: #4289FF;
+    margin-left: 30px;
+}
+
+.week-frequency-double {
+    font-size: 14px;
+    color: #828b97;
+    margin-left: 15px;
+}
+
+.week-frequency-double-selected {
+    font-size: 14px;
+    color: #4289FF;
+    margin-left: 15px;
+}
+
+.week-frequency-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    /*background-image: url(../../../assets/images/schedule_week_selected.png);*/
+}
+
+.week-frequency-selected {
+    color: #4289FF;
+}
+
+button {
+    width: 640px;
+    height: 50px;
+    margin-top: 40px;
+    background-color: #4289FF;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: #4289FF 1px solid;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+.close-image {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}

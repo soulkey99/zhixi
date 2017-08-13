@@ -1,0 +1,41 @@
+<div >
+	<div >
+		<div>我的作业</div>
+	</div>
+	<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--4-col" *ngFor='let homework of homeworks'>
+		<div style="background-color:yellow;width:320px;height:160px;margin:20px 20px 20px 20px;">
+			<div>{{homework.class_name}}</div>
+			<div class="status">
+				<div *ngIf="homework.type=='additional'&&homework.status=='pending'" class="additional">补充作业</div>
+				<div *ngIf="homework.type=='additional'&&homework.status=='finished'" class="additional">已完成</div>
+				<div *ngIf="homework.type!='additional'&&homework.status=='pending'">{{util.convertTime2DateStr(homework.endAt)}}前完成</div>
+				<div *ngIf="homework.type!='additional'&&homework.status=='timeout'">未完成</div>
+				<div *ngIf="homework.type!='additional'&&homework.status=='finished'">已完成</div>
+				<div *ngIf="homework.type!='additional'&&homework.status=='submitted'">已完成</div>
+				<div *ngIf="homework.type!='additional'&&homework.status=='timeoutFinished'">已补交</div>
+			</div>
+			<div>{{homework.grade}}</div>
+			<div>{{homework.homework_desc}}</div>
+			<div>new bu new  {{homework.is_new}}</div>
+			<div>{{homework.finished}}/{{homework.total}}</div>
+			<button class="action" (click)="startHomework(homework.swork_id)">开始答题</button>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div>
+	<div>我的练习</div>
+</div>
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--4-col" *ngFor='let recently of recentlys'>
+		<div style="background-color:blue;width:320px;height:160px;margin:20px 20px 20px 20px;">
+			<div>2作业2</div>
+			<div>{{recently.homework_desc}}</div>
+			<div>{{recently.stage}}{{recently.subject}}{{recently.grade}}</div>
+			<button class="action" (click)="startRecently(recently.ver_id, recently.sec_id)">开始答题</button>
+		</div>
+	</div>
+</div>
+

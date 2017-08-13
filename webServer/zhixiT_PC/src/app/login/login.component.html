@@ -1,0 +1,131 @@
+<div class="mdl-grid bg">
+  <!-- div class="mdl-cell mdl-cell--8-col main">
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="userPhone" [(ngModel)]="userPhone" #userPhoneRef="ngModel">
+      <label class="mdl-textfield__label" for="userPhone">手机号</label>
+    </div>
+    <div *ngIf="userPhoneRef.errors!=null && userPhoneRef.errors.required">请填写手机号</div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="password" id="password" [(ngModel)]="userPwd" #userPwdRef="ngModel">
+      <label class="mdl-textfield__label" for="password">密码</label>
+    </div>
+    <div *ngIf="userPwdRef.errors!=null && userPwdRef.errors.required && loginType == 'usePwd'">请填写密码</div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" [style.display]="loginType == 'useMsg' ? 'inline' : 'none'">
+      <input class="mdl-textfield__input" type="text" id="msgPwd" [(ngModel)]="msgPwd" #msgPwdRef="ngModel">
+      <label class="mdl-textfield__label" for="msgPwd">短信验证码</label>
+    </div>
+    <div *ngIf="msgPwdRef.errors!=null && msgPwdRef.errors.required && loginType == 'useMsg'">请填写手机短信验证码</div>
+  
+    <div class="mdl-cell mdl-cell--2-col checkMsg">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" (change)="loginType = loginType == 'usePwd' ? 'useMsg' : 'usePwd'">
+        <span class="mdl-checkbox__label">手机登录</span>
+      </label>
+    </div>
+
+    <div class="mdl-cell mdl-cell--12-col">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored loginBtn" (click)="login()">登陆</button>
+    </div>
+  </div -->
+
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--8-col-tablet mdl-cell--12-col-phone mdl-cell--7-offset-desktop loginDiv" *ngIf="sign=='login'" id="login">
+    <img class="titleImg" src="../../assets/images/login/loginTitle.png">
+    <div class="loginText">登陆</div>
+    <div class="inputDiv">
+      <input type="text" id="userPhone" [(ngModel)]="userPhone" #userPhoneRef="ngModel" placeholder="电话/邮箱账号">
+      <div *ngIf="userPhoneRef.errors!=null && userPhoneRef.errors.required">请填写手机号</div>
+    </div>
+    <div class="inputDiv">
+      <input style="width: 60%" type="password" id="password1" [(ngModel)]="password1" #password1Ref="ngModel" placeholder="密码"><span style="font-size: 1rem;color: #828b97;float: right;cursor: pointer" (click)="gotoResetpwd()">忘记密码?</span>
+      <div *ngIf="password1Ref.errors!=null && password1Ref.errors.required">请填写密码</div>
+    </div>
+    <div class="inputDiv">
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+        <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="teacher" (change)="userType='t'" checked>
+        <span class="mdl-radio__label">教师登陆</span>
+      </label>
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+        <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="student" (change)="userType='s'">
+        <span class="mdl-radio__label">学生登陆</span>
+      </label>
+    </div>
+    <div class="btnDiv">
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="login()">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+    </div>
+    <div class="regedit" (click)="gotoRegedit()">注册账号</div>
+  </div>
+  
+
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--8-col-tablet mdl-cell--12-col-phone mdl-cell--7-offset-desktop loginDiv" *ngIf="sign=='regedit'" id="regedit">
+    <img class="titleImg" src="../../assets/images/login/loginTitle.png">
+    <div class="loginText">注册</div>
+    <div class="inputDiv">
+      <input style="width: 60%" type="text" id="userPhone" [(ngModel)]="userPhone" #userPhoneRef="ngModel" placeholder="电话/邮箱账号"><span style="font-size: 1rem;color: #4289ff;float: right;cursor: pointer" (click)="sendMsg()">发送验证码</span>
+      <div *ngIf="userPhoneRef.errors!=null && userPhoneRef.errors.required">请填写手机号</div>
+    </div>
+    <div class="inputDiv">
+      <input type="text" id="msgCode" [(ngModel)]="msgCode" #msgCodeRef="ngModel" placeholder="验证码">
+      <div *ngIf="msgCodeRef.errors!=null && msgCodeRef.errors.required">请填写验证码</div>
+    </div>
+    <div class="inputDiv">
+      <input type="text" id="password1" [(ngModel)]="password1" #password1Ref="ngModel" placeholder="设置密码">
+      <div *ngIf="password1Ref.errors!=null && password1Ref.errors.required">请填写密码</div>
+    </div>
+    <div class="inputDiv">
+      <input type="text" id="password2" [(ngModel)]="password2" #password2Ref="ngModel" placeholder="确认密码">
+      <div *ngIf="password2Ref.errors!=null && password2Ref.errors.required">确认密码</div>
+    </div>
+    <div class="userrelDiv">
+      <div class="userRel">
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+          <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" style="width: 8%;" checked>
+          <span class="mdl-checkbox__label">Soulkey用户协议</span>
+        </label>
+      </div>
+      <div class="login"><span style="color: #828b97;font-size: 1rem">想起密码！</span><span style="font-size: 1rem;color: #4289ff;cursor: pointer" (click)="gotoLogin()">去登陆</span></div>
+    </div>
+    <div class="btnDiv" style="overflow: hidden;margin-top: 15%">
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="regedit()">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--8-col-tablet mdl-cell--12-col-phone mdl-cell--7-offset-desktop loginDiv" *ngIf="sign=='resetPwd'" id="resetPwd">
+    <img class="titleImg" src="../../assets/images/login/loginTitle.png">
+    <div class="loginText">忘记密码</div>
+    <div class="inputDiv">
+      <input style="width: 60%" type="text" id="userPhone" [(ngModel)]="userPhone" #userPhoneRef="ngModel" placeholder="电话/邮箱账号"><span style="font-size: 1rem;color: #4289ff;float: right;cursor: pointer" (click)="sendMsg()">发送验证码</span>
+      <div *ngIf="userPhoneRef.errors!=null && userPhoneRef.errors.required">请填写手机号</div>
+    </div>
+    <div class="inputDiv">
+      <input type="text" id="msgCode" [(ngModel)]="msgCode" #msgCodeRef="ngModel" placeholder="验证码">
+      <div *ngIf="msgCodeRef.errors!=null && msgCodeRef.errors.required">请填写验证码</div>
+    </div>
+    <div class="inputDiv">
+      <input type="text" id="password1" [(ngModel)]="password1" #password1Ref="ngModel" placeholder="设置新密码">
+      <div *ngIf="password1Ref.errors!=null && password1Ref.errors.required">请填写密码</div>
+    </div>
+    <div class="userrelDiv">
+      <div class="userRel">
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+          <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" style="width: 8%;" checked>
+          <span class="mdl-checkbox__label">Soulkey用户协议</span>
+        </label>
+      </div>
+      <div class="login"><span style="color: #828b97;font-size: 1rem">想起密码！</span><span style="font-size: 1rem;color: #4289ff;cursor: pointer" (click)="gotoLogin()">去登陆</span></div>
+    </div>
+    <div class="btnDiv" style="overflow: hidden;margin-top: 15%">
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="resetPwd()">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+    </div>
+  </div>
+
+</div>

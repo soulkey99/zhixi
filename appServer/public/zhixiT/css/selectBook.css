@@ -1,0 +1,183 @@
+html,body { width: 100%;overflow-x: hidden;margin: 0px auto;font-size: 16px;background-color: #f0f2f6; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+a, input, div{ -webkit-tap-highlight-color: rgba(0,0,0,0); }
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+ul, ol { list-style: disc ;color: #828b97;width: 79%;padding: 0% 10% 2% 15%}
+li {padding-left: 9%;margin-bottom: 15px}
+a { text-decoration:none; }
+a:hover { text-decoration:none; }
+fieldset, img { border:0; }
+.bookInfo {
+    width: 30%;
+    text-align: center;
+    padding: 4% 9% 4% 9%;
+    display: inline-block;
+    vertical-align: top;
+}
+.bookInfo img {
+    width: 100%;
+    height: auto;
+}
+.bookTitle {
+    color: #828b97;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.btn {
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    bottom: 0px;
+}
+.btn .left{
+    float: left;
+    width: 100%;
+    height: 8vh;
+    line-height: 8vh;
+    color: white;
+    font-size: 1.1rem;
+    background-color: #52595f;
+}
+.selectedText {
+    margin-left: 22%;
+}
+.btn .right{
+    float: left;
+    width: 35%;
+    height: 8vh;
+    line-height: 8vh;
+    text-align: center;
+    font-size: 1.1rem;
+    background-color: #828c98;
+    color: white;
+}
+.six {
+    position: fixed;
+    bottom: 0px;
+    left: 1rem;
+    width: 9.2vh;
+}
+.book {
+    position: fixed;
+    bottom: 3.5vh;
+    left: 5.5vh;
+    width: 3.3vh;
+}
+.selectedNum {
+    position: absolute;
+    bottom: 3.5vh;
+    left: 5.2vh;
+    color: white;
+    font-size: 1.1rem;
+}
+.selectedQuestionDiv {
+    width: 100%;
+    height: 80vh;
+    bottom: -88vh;
+    position: fixed;
+}
+.selectedQuestionDiv .header{
+    width: 100%;
+    height: 8vh;
+    line-height: 8vh;
+    background-color: #f0f2f6;
+}
+.selectedQuestionDiv .header .left{
+    float: left;
+    width: 75%;
+    height: 8vh;
+    line-height: 8vh;
+    color: #f87148;
+    font-size: 1rem;
+    padding-left: 5%;
+}
+.selectedQuestionDiv .header .right{
+    float: left;
+    width: 20%;
+    height: 8vh;
+    line-height: 8vh;
+    color: #828b97;
+    text-align: center;
+    font-size: 1rem;
+}
+.selectedQuestionList {
+    width: 100%;
+    height: 72.5vh;
+    overflow-y: scroll;
+    background-color: white;
+}
+.bg {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    display: none;
+}
+.selectedQuestion {
+    padding: 8% 8% 13% 8%;
+    position: relative;
+    width: 84%;
+    color: #828b97;
+    border-bottom: 1px #c6d1e0 solid;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-x: hidden;
+}
+.selectedQuestion span img {
+    width: 100% !important;
+    height: auto !important;
+}
+.delImg {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 10%;
+}
+.openSelected {
+    -webkit-animation: open 0.3s forwards linear;
+}
+.closeSelected {
+    -webkit-animation: close 0.3s forwards linear;
+}
+.changeBook {
+    display: inline;
+    margin-left: 12%;
+    font-size: 0.9rem;
+    background-color: white;
+    color: #535860;
+    padding: 3% 5% 3% 5%;
+    border-radius: 4px;
+}
+.saveQuestions {
+    display: inline;
+    margin-left: 0%;
+    font-size: 0.9rem;
+    background-color: #52df8b;
+    color: white;
+    padding: 3% 5% 3% 5%;
+    border-radius: 4px;
+}
+@-webkit-keyframes open {
+    0% {bottom: -88vh;}
+    100% {bottom: 8vh;}
+}
+@-webkit-keyframes close {
+    0% {bottom: 8vh;}
+    100% {bottom: -88vh;}
+}
+/*4 4s*/
+@media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){
+    html { font-size: 14px; }
+}
+/* 兼容iphone5 */
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+    html { font-size: 14px; }
+}
+/*6*/
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+    html { font-size: 16px; }
+}
+/*6+*/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+    html { font-size: 18px; }
+}

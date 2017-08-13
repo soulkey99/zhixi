@@ -1,0 +1,81 @@
+<div class="mdl-grid" style="max-width: 1000px;min-height: 83.5vh;">
+  <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--3-col-tablet mdl-cell--12-col-phone"><img [src]='avatar'></div>
+      <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+        <div>{{nick}}</div>
+        <div>{{school}}</div>
+        <button #editUserButton mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple (click)="editUserDialog.show()">编辑个人信息</button>
+        <mdl-dialog #editUserDialog
+                    [mdl-dialog-config]="{
+                      clickOutsideToClose: true,
+                      styles:{'width': '300px'},
+                      isModal:true,
+                      openFrom: editUserButton,
+                      enterTransitionDuration: 400,
+                      leaveTransitionDuration: 400}"
+                    (show)="loadUserInfo()"
+                    (hide)="onDialogHide()">
+          <h3 class="mdl-dialog__title">编辑个人信息</h3>
+          <div class="mdl-dialog__content">
+            <mdl-textfield type="text" label="姓名" [(ngModel)]="editName" floating-label autofocus></mdl-textfield>
+            <mdl-textfield type="text" label="昵称" [(ngModel)]="editNick" floating-label autofocus></mdl-textfield>
+            <mdl-textfield type="text" label="学校" [(ngModel)]="editSchool" floating-label autofocus></mdl-textfield>
+            <mdl-textfield type="text" label="年级" [(ngModel)]="editGrade" floating-label autofocus></mdl-textfield>
+            <mdl-textfield type="text" label="教材" [(ngModel)]="editBook" floating-label autofocus></mdl-textfield>
+          </div>
+          <div class="mdl-dialog__actions">
+            <button mdl-button (click)="subEdit()" mdl-button-type="raised" mdl-colored="primary" mdl-ripple>保存</button>
+            <button mdl-button (click)="editUserDialog.close()" mdl-ripple>关闭</button>
+          </div>
+        </mdl-dialog>
+      </div>
+      <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--5-col-tablet mdl-cell--12-col-phone">
+        <qr-code [data]="qrCodeUrl" [size]="150" [type]="10"></qr-code>
+      </div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">我的班级</div>
+      <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--6-col-phone" *ngFor="let class of classes">
+        <div>{{class.class_name}}</div>
+        <div>{{class.t_name}}</div>
+      </div>
+      <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+        <button #joinClassButton mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple (click)="joinClassDialog.show()">加入班級</button>
+        <mdl-dialog #joinClassDialog
+                    [mdl-dialog-config]="{
+                      clickOutsideToClose: true,
+                      styles:{'width': '300px'},
+                      isModal:true,
+                      openFrom: joinClassButton,
+                      enterTransitionDuration: 400,
+                      leaveTransitionDuration: 400}"
+                    (show)="onDialogShow(joinClassDialog)"
+                    (hide)="onDialogHide()">
+          <h3 class="mdl-dialog__title">加入班级</h3>
+          <div class="mdl-dialog__content">
+            <mdl-textfield type="text" label="班级码" [(ngModel)]="classCode" floating-label autofocus></mdl-textfield>
+            <mdl-textfield type="text" label="申请备注" [(ngModel)]="joinMsg" floating-label autofocus></mdl-textfield>
+          </div>
+          <div class="mdl-dialog__actions">
+            <button mdl-button (click)="joinClass()" mdl-button-type="raised" mdl-colored="primary" mdl-ripple>加入</button>
+            <button mdl-button (click)="joinClassDialog.close()" mdl-ripple>关闭</button>
+          </div>
+        </mdl-dialog>
+      </div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone" (click)="myWrong()">我的错题本</div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone" (click)="myHomework()">我的作业本</div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">我的家长</div>
+      <div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--2-col-tablet mdl-cell--3-col-phone" *ngFor="let parent of parents">
+        <div><img style="width:100%;border-radius:50px" [src]='parent.p_avatar'></div>
+        <div>{{parent.p_nick}}</div>
+      </div>
+    </div>
+  </div>
+</div>

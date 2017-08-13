@@ -1,0 +1,27 @@
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col" style="background-color:#ffffff; border-left:5px #4289FF solid">
+		<div style="padding-top:10px;">
+			<div class="selected_class_name">{{classInfo.class_name}}</div>
+			<div class="selected_class_number">班级码{{classInfo.class_num}}</div>
+			<div style="width:100px; height:auto; background-color:#4289FF; color:#4289FF; float:right; margin-right:20px; display:none">wo </div>
+		</div>
+		<div class="class_description" style="clear:both; padding-top:10px">{{classInfo.startAt}} - {{classInfo.endAt}}</div>
+		<div class="class_description">{{util.convertWeeklyScheduleStr(classInfo.week_num, classInfo.week)}}</div>
+		<div class="class_description">{{classInfo.noon == "before" ? "上午":"下午"}}{{classInfo.hour}}:{{classInfo.minute == 0 ? "00" : classInfo.minute}}开课</div>
+		<div class="class_description">时长{{classInfo.duration}}分钟</div>
+		<div class="mdl-grid" *ngIf="classMates?.length > 0">
+			<div class="mdl-cell mdl-cell--1-col" *ngFor="let student of classMates">
+				<img class="avatar circular--square" [attr.src]="student.s_avatar==''?'../assets/images/classlist/default_avatar.png':student.s_avatar"
+				/>
+				<div class="nick">{{student.cs_id ? "待审核" : student.s_nick}}</div>
+				<button [attr.class]="student.cs_id ? 'accept':'remove'" (click)="onStudentManagement(student)">{{student.cs_id ? "通过" : "删除"}}</button>
+			</div>
+		</div>
+		<div style="clear:both; padding-left:20px;padding-right:20px;padding-top:15px;padding-bottom:15px;">
+			<button (click)="onAssignHomework(classInfo.class_id)" class="button">布置作业 ></button>
+			<button (click)="onCheckHomework(classInfo.class_id)" class="button">查看往期 ></button>
+			<img src="../assets/images/classlist/icon_left_top_arrow.png" (click)="onCloseSelectedClass()" style="height: 25px; width:25px; float:right"
+			/>
+		</div>
+	</div>
+</div>

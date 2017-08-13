@@ -1,0 +1,191 @@
+.main {
+    width: 1000px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+.left {
+    width: 30%;
+    float: left;
+    position: relative;
+    box-shadow: 1px 5px 15px #34495d;
+}
+.right {
+    width: 70%;
+    float: left;
+}
+.bookImg {
+    width: 100%;
+}
+.bookImg img {
+    width: 100%;
+    height: auto;
+}
+.moreBook {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px white solid;
+    font-size: 0.8rem;
+    color: wheat;
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.chapterDiv {
+    width: 90%;
+    padding: 2% 5% 2% 5%;
+}
+.titleB {
+    font-size: 1rem;
+    color: #535860;
+    cursor: pointer;
+}
+.titleS {
+    font-size: 0.9rem;
+    color: #828b97;
+    cursor: pointer;
+}
+.classInfo {
+    overflow: hidden;
+    margin-top: 10%;
+}
+.classInfoLeft {
+    padding: 0%;
+}
+.className {
+    font-size: 2.5rem;
+    color: #4289ff;
+    margin-bottom: 10px;
+}
+.classTimeText {
+    font-size: 1rem;
+    color: #535860;
+    margin-bottom: 5px;
+}
+.classInfoRight {
+    padding: 0%;
+    float: left;
+}
+.questionNum {
+    color: #535860;
+    font-size: 1rem;
+    text-align: right;
+    margin-bottom: 10px;
+    cursor: pointer;
+}  
+.questionNum img {
+    width: 15%;
+    height: auto;
+    vertical-align: middle;
+}
+.num {
+    color: #535860;
+    font-size: 1.8rem;
+}  
+.saveBtn {
+    width: 55%;
+    height: auto;
+    float: right;
+    cursor: pointer;
+}
+.questionDiv {
+    position: relative;
+    width: 100%;
+    padding: 5% 10% 4% 10%;
+    background-color: white;
+    margin-bottom: 10px;
+}
+.question {
+    font-size: 1rem;
+    color: #535860;
+}
+.question img, .questionImg {
+    width: 100% !important;
+}
+.addBtn {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 7%;
+    cursor: pointer;
+}
+img {
+    width: 100%;
+}
+.datetime {
+    width: 55%;
+    padding: 2%;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #535860;
+    border: #828b97 1px solid;
+    border-radius: 5px;
+}
+.mdl-layout {
+    height: 83vh !important;
+}
+.mdl-layout__drawer {
+    height: 83vh !important;
+    max-height: none !important;
+}
+.arrow {
+    width: 5%;
+    margin-right: 4%;
+    vertical-align: middle;
+}
+li {
+    list-style-type: none;
+    line-height: 2.2;
+}
+ul {
+    padding-top: 2%;
+}
+.btnDiv {
+    width: 100%;
+    text-align: right;
+    margin-top: 8%;
+    cursor: pointer;
+}
+i {
+    vertical-align: middle;
+}
+.propLine {
+    width: 98%;
+    height: 40px;
+    background-color: #666666;
+}
+.prop {
+    float: left;
+    width: 90%;
+    text-align: left;
+    font-size: 1rem;
+}
+.propNum {
+    float: left;
+    width: 10%;
+    text-align: right;
+    font-size: 1rem;
+}
+.subDiv {
+    width: 100%;
+    word-break: break-all;
+    word-wrap: break-word;
+    margin-top: 20px;
+}
+.numDiv {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: blueviolet;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.choice {
+    cursor: pointer;
+    padding: 15px 0 15px 0;
+}

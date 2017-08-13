@@ -1,0 +1,65 @@
+html,body {width: 100%;overflow-x: hidden;margin: 0px auto;font-size: 16px;background-color: #f0f2f6; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+a, input, div{ -webkit-tap-highlight-color: rgba(0,0,0,0); }
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+fieldset, img { border:0; }
+body,html {
+    background-color: #f0f2f6;
+}
+.question{
+    width: 80%;
+    margin: 7% auto 7% auto;
+    background-color: white;
+    padding: 0 5% 5% 5%;
+}
+.no {
+    width: 20%;
+    height: 2rem;
+    line-height: 2rem;
+    float: left;
+    background-color: #52df8b;
+    color: white;
+    text-align: center;
+    font-size: 1.3rem;
+}
+.people {
+    width: 77%;
+    height: 2rem;
+    line-height: 2rem;
+    float: left;
+    padding-left: 3%;
+    color: #828b97;
+    font-size: 0.9rem;
+}
+.MathJax {
+    font-size: 2rem !important;
+}
+.questionImg {
+    display: block !important;
+    width: 90% !important;
+    height: auto !important;
+}
+.content {
+    width: 100%;
+    margin-top: 5%;
+    color: #828b97;
+    font-size: 1.2rem;
+    display: -webkit-inline-box;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+/*4 4s*/
+@media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){
+    html { font-size: 14px; }
+}
+/* ºÊ»›iphone5 */
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+    html { font-size: 14px; }
+}
+/*6*/
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+    html { font-size: 16px; }
+}
+/*6+*/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+    html { font-size: 18px; }
+}

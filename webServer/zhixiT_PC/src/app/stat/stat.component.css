@@ -1,0 +1,36 @@
+.root {background: #f0f3f5; width: 1024px; margin: 0px auto; font-family: Microsoft Yahei}
+
+.select_grid {margin-top: 32px; padding: 0px; }
+
+.select_schedule {height: 45px; font-size: 18px;padding-left: 18px;padding-right: 18px; background: #ffffff; border-radius: 5px; }
+
+.section_grid {background: #ffffff; margin-top: 32px; padding: 32px; }
+
+.section_root {background: #ffffff; margin-top: 35px; padding-left: 35px; padding-top: 35px; padding-bottom: 20px;}
+
+.mdl-progress .progressbar {background-color: #51e08b; }
+
+.section_title {padding-bottom: 30px; color: #535860; }
+
+.text-with-green {border-left: 6px; border-left-color: #52df8b; padding-left: 5px; border-left-style: solid; }
+
+.section_item {margin-left: 50px; margin-top: 25px;}
+
+.green_rectangle {background: #52df8b; height: 20px; width: 6px; display: inline-block; }
+
+.mdl-cell-avatar {height: auto; background: #ffffff; padding: 0; }
+.student_avatar_item{height: auto; width: 100%; }
+
+.inline_div{display: inline-block; }
+
+.font_grey{color: #535860; }
+
+.font_grey2 {color: #828b97; }
+
+.seperator_grey {width: 72px; height: 3px; background: #c6d1e0; display: inline-block}
+.seperator_blue {width: 72px; height: 3px; background: #006dff; display: inline-block}
+
+.tab_div{padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; border-top-right-radius: 5px; }
+
+.mdl-chip__contact {height: 24px; width: 24px; border-radius: 12px; margin-right: 6px; font-size: 13.5px; line-height: 24px; }
+.top_num_background {background: #ff4f59 !important; }

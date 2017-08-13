@@ -1,0 +1,12 @@
+<div>
+  <div *ngFor='let homework of homeworks' (click)="onSelectHomework(homework.q_id)">
+    <div class="homework" id="homeworkDiv">
+      <div class="status">
+        <div *ngIf="homework.status=='finished'&&homework.point>=100" class="qualified">合格</div>
+        <div *ngIf="homework.status=='finished'&&homework.point<100" class="unqualified">不合格</div>
+        <div *ngIf="homework.status=='pending'" class="pending">未完成</div>
+      </div>
+      <div class="content" [innerHTML]="homework.info.content.split('$$').join('$')"></div>
+    </div>
+  </div>
+</div>

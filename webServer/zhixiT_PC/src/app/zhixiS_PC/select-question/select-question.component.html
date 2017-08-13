@@ -1,0 +1,81 @@
+<div class="mdl-grid" style="max-width: 1000px;padding: 0px;">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer" style="max-width: 1000px;">
+    <div class="mdl-layout__drawer">
+      <div class="bookImg"></div>
+      <div *ngFor="let chapter of chapters" class="chapterDiv">
+        <div class="titleB" (click)="showChapter(chapter)">
+          <img *ngIf="!(cha_id==chapter.cha_id) || !isShow" class="arrow" src="../../assets/images/setHomework/rightArrow.png">
+          <img *ngIf="cha_id==chapter.cha_id && isShow" class="arrow" src="../../assets/images/setHomework/downArrow.png">
+          {{chapter.title}}
+        </div>
+        <div *ngIf="cha_id==chapter.cha_id && isShow">
+          <ul>
+            <li *ngFor="let section of chapter.sections" (click)="selectChapter(section)" class="titleS">{{section.title.substring(2,section.title.length)}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+
+          <div class="mdl-grid" *ngIf="startQuestion == 'questionList'">
+            <div style="width: 100%;margin: 3% 0 3% 0;" *ngIf="showProp">
+              <div style="width: 98%;overflow: hidden;">
+                <div class="prop">本章进度{{proportion}}%</div>
+                <div class="propNum">{{finished}}/{{total}}</div>
+              </div>
+              <div class="propLine"><div style="height: 98%;background-color: red" [style.width]="proportion+'%'"></div></div>
+            </div>
+            <div *ngFor="let question of questions" class="mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+              <div class="questionDiv">
+                <div class="mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone question" [innerHTML]="question.content.split('$$').join('$')"></div>
+                <div class="btnDiv" *ngIf="question.finished">
+                  <span (click)="questionClick(question.q_id)"><i class="material-icons">view_list</i>&nbsp;回顾详情</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span (click)="startAnswerQuestion(question)"><i class="material-icons">sync</i>&nbsp;重新答题</span>
+                </div>
+                <div class="btnDiv" *ngIf="!question.finished">
+                  <span (click)="startAnswerQuestion(question)"><i class="material-icons">play_arrow</i>&nbsp;开始答题</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mdl-grid" *ngIf="startQuestion == 'startQuestion'">
+            <div class="subDiv">题干&nbsp;&nbsp;难易度{{mainQuestionDiff}}</div>
+            <div class="subDiv" [innerHTML]="mainQuestion">题干内容</div>
+            <div class="subDiv">
+              <span class="numDiv" *ngFor="let answeredQuestion of answeredQuestions" (click)="oldQuestion(answeredQuestion)">{{answeredQuestions.indexOf(answeredQuestion)+1}}</span>
+            </div>
+            <div *ngFor="let nowQuestion of nowQuestions">
+              <div class="mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone subDiv" [innerHTML]="nowQuestion.content.split('$$').join('$')"></div>
+              <div class="subDiv" *ngIf="nowQuestion.q_id == nowQ_id">
+                <!-- div class="choice" *ngFor="let choiceone of nowQuestion.choice" [innerHTML]="choiceone.flag+'.'+choiceone.content.split('$$').join('$')" [style.border]="choice_id == choiceone.choice_id?'1px red solid':'0px'" (click)="selectChoice(choiceone)"></div -->
+                <div *ngFor="let choiceone of nowQuestion.choice">
+                  <mdl-chip mdl-label="Contact Chip" [mdl-label]="choiceone.content.split('$$').join('$')" (click)="selectChoice(choiceone)">
+                    <span mdl-chip-contact class="mdl-color--blue mdl-color-text--white" [style.border]="choice_id == choiceone.choice_id?'1px black solid':'1px #2196f3 solid'">{{choiceone.flag}}</span>
+                  </mdl-chip>
+                </div>
+              </div>
+              <div class="subDiv" *ngIf="nowQuestion.q_id != nowQ_id">
+                <div *ngFor="let choiceone of nowQuestion.choice">
+                  <!-- div class="choice" *ngFor="let choiceone of nowQuestion.choice" [innerHTML]="choiceone.flag+'.'+choiceone.content.split('$$').join('$')" [style.border]="choiceone.correct == true?'1px red solid':'0px'"></div -->
+                  <mdl-chip mdl-label="Contact Chip" [mdl-label]="choiceone.content.split('$$').join('$')">
+                    <span mdl-chip-contact class="mdl-color--blue mdl-color-text--white" [style.border]="choiceone.correct == true?'1px black solid':'1px #2196f3 solid'">{{choiceone.flag}}</span>
+                  </mdl-chip>
+                </div>
+              </div>
+              <div class="subDiv" *ngIf="nowQuestion.q_id == nowQ_id">
+                <button (click)="subChoice()" mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple>确定</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mdl-grid" *ngIf="startQuestion == 'result'">
+            掌握度:{{percent}}%
+            <button (click)="gotoNextQuestion()" mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple>下一题</button>
+          </div>
+
+      </div>
+    </main>
+  </div>
+</div>

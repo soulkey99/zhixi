@@ -1,0 +1,25 @@
+<div class="mdl-grid" style="max-width: 1000px;">
+  <div class="mdl-cell mdl-cell--12-col search">
+    <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--6-col-phone left" *ngIf="q_ids.length>0">
+      <span>您有未保存的作业</span>
+      <img src="../../assets/images/setHomework/save.png" (click)="saveQuestions">  
+    </div>
+    <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--6-col-phone right">
+      <select [(ngModel)]="schedule_id" (change)="onSelectTime()" *ngIf="homework_type=='first'">
+        <option *ngFor="let classtime of classtimes" [value]="classtime.schedule_id">课时{{classtime.seq}}{{classtime.homework_status=='waiting'?'':'(已布置)'}}</option>
+      </select>
+      <select [(ngModel)]="ver" (change)="onSelectChangeVer()">
+        <option value="">全部</option>
+        <option value="北师大版">北师大版</option>
+      </select>
+      <select [(ngModel)]="grade" (change)="onSelectChangeGrade()">
+        <option value="">全部</option>
+        <option value="七年级上">七年级上</option>
+      </select>
+    </div>
+  </div>
+  <div *ngFor="let book of books" class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--6-col-phone book" (click)="selectBook(book)">
+    <img [attr.src]="book.cover">
+    <div class="bookTitle">{{book.title==''?book.grade+book.subject:book.title}}</div>
+  </div>
+</div>

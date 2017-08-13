@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>我的统计</title>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <link type="text/css" rel="stylesheet" href="css/statistics.css">
+</head>
+<body>
+    <div class="answer">答题数据</div>
+    <div class="title">累计完成题目</div>
+    <div class="num" data-bind="text: total"></div>
+    <!-- div class="type">
+        <span class="typeSelected">全部</span>
+        <span class="typeSelect">练习</span>
+        <span class="typeSelect">作业</span>
+    </div -->
+    <div id="main" class="charts"></div>
+    <div class="labelDiv">
+        <div class="label">
+            <div class="left">
+                <span class="colorDiv"></span>
+                <span class="numDiv">
+                    <div class="text">完美</div>
+                    <div class="textNum" data-bind="text: perfect()+'题'"></div>
+                </span>
+            </div>
+            <div class="right" style="padding-right: 4.5%;width: 45.5%;">
+                <span class="colorDiv" style="background-color: #6ae1f3"></span>
+                <span class="numDiv">
+                    <div class="text">优秀</div>
+                    <div class="textNum" data-bind="text: excellent()+'题'"></div>
+                </span>
+            </div>
+        </div>
+        <div class="label">
+            <div class="left">
+                <span class="colorDiv" style="background-color: #4289ff"></span>
+                <span class="numDiv">
+                    <div class="text">及格</div>
+                    <div class="textNum" data-bind="text: pass()+'题'"></div>
+                </span>
+            </div>
+            <div class="right">
+                <span class="colorDiv" style="background-color: #4759bd"></span>
+                <span class="numDiv">
+                    <div class="text">不及格</div>
+                    <div class="textNum" data-bind="text: fail()+'题'"></div>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/knockout/3.3.0/knockout-min.js"></script>
+<script src="//cdn.bootcss.com/swiftclick/2.0.0/swiftclick.min.js"></script>
+<script src="//cdn.bootcss.com/echarts/3.3.1/echarts.min.js"></script>
+<script src="../lib/util.js"></script>
+<script src="js/statistics.js"></script>
+</html>

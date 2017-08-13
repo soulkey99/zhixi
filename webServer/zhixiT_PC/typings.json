@@ -1,0 +1,10 @@
+{
+  "globalDependencies": {
+    "echarts": "registry:dt/echarts#0.0.0+20160409144419",
+    "js-base64": "registry:dt/js-base64#2.1.9+20161007000413",
+    "jssha": "registry:dt/jssha#1.6.0+20160317120654"
+  },
+  "globalDevDependencies": {
+    "require": "registry:dt/require#2.1.20+20160919185614"
+  }
+}

@@ -1,0 +1,15 @@
+<div class="bg">
+  <img class="close" (click)="hideFeedbackDiv()" src="../../assets/images/setHomework/downArrow.png"/>
+  <br/>
+  <div *ngIf="_feedbackContent.length>0">
+    <div class="feedback_title">我的反馈</div>
+    <textarea type="text" class="feedback_content" disabled="disabled">{{_feedbackContent}}</textarea>
+  </div>
+  <div *ngIf="_feedbackContent.length<=0">
+    <div class="feedback_title">意见反馈</div>
+    <textarea type="text" #content placeholder="可以对学生的作业情况进行一个总结和反馈" class="feedback_content"></textarea>
+    <div class="feedback_action">
+      <button (click)="send_click(content.value)" class="feedback_action">发送</button>
+    </div>
+  </div>
+</div>

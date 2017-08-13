@@ -1,0 +1,30 @@
+.main {
+  width: 100%;
+  background-color: #f0f2f6;
+}
+#router {
+    width: 1000px;
+    background: white;
+    margin: 0px auto;
+}
+.header {
+    background: url(../../assets/images/header/headerBg.png);
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%; /* 老版本的 Firefox */
+    background-repeat: no-repeat;
+    /* max-width: 1000px; */
+    margin: 0px auto;
+}
+.material-icons {
+    color: white;
+    vertical-align: middle;
+}
+.mdl-layout__tab-bar {
+    background-color: rgba(0,0,0,0) !important;
+}
+.mdl-layout__container {
+    left: 0px !important;
+}
+span {
+    cursor: pointer;
+}

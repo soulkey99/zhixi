@@ -1,0 +1,31 @@
+<div class="bg">
+    <div>
+      <div class="userinfo">
+        <div class="avatar">
+          <img [attr.src]="s_avatar || '../assets/images/classlist/default_avatar.png'" class="avatar" />
+        </div>
+        <div>
+          <div class="nick">{{s_nick}}</div>
+          <div class="percent">正确率{{percent}}%</div>
+          <div>
+            <button class="action_btn" (click)="actionF('addMoreHomework')">补充作业</button>
+            <button *ngIf="type!='additional'" class="action_btn" (click)="actionF('feedbackHomework')">反馈情况</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <div>
+      <div *ngFor='let homework of homeworks' (click)="onSelectHomework(homework)">
+        <div class="homework" id="homeworkDiv">
+          <div class="status">
+            <div *ngIf="homework.status=='finished'&&homework.point>=100" class="qualified">合格</div>
+            <div *ngIf="homework.status=='finished'&&homework.point<100" class="unqualified">不合格</div>
+            <div *ngIf="homework.status=='pending'" class="pending">未完成</div>
+          </div>
+          <div class="content" [innerHTML]="homework.info.content.split('$$').join('$')"></div>
+        </div>
+      </div>
+    </div>
+  </div>

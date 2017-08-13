@@ -1,0 +1,30 @@
+<div class="dialog">
+    <div class="close_div">
+        <img class="close" (click)="hideDiv()" src="../../assets/images/setHomework/closeBtn.png"/>
+    </div>
+    <div class="content">
+        <app-detail class="info"
+                    [s_info]=s_info
+                    [type]=type
+                    [homeworks]=homeworks
+                    (action)="action($event)"
+                    (questionDetail)="questionDetail($event)"
+                    >
+        </app-detail>
+
+        <app-feedback class="feedback"
+                        [feedbackContent]=feedbackContent
+                        *ngIf="showFeedback && !showQuestions" 
+                        (hideFeedback)="hideFeedback()"
+                        (sendFeedback)="sendFeedback($event)"
+                        >
+        </app-feedback>
+
+        <app-question class="question"
+                        *ngIf="!showFeedback && showQuestions" 
+                        [data]=data
+                        (hideQuestion)="hideQuestion()"
+                        >
+        </app-question>
+    </div>
+</div>

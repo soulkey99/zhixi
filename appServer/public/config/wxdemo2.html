@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>配置修改工具</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/material-design-lite/1.2.1/material.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="//www.baidu.com/favicon.ico" type="image/x-icon">
+</head>
+<style>
+    .item {
+        margin: 20px 40px
+    }
+
+    .text {
+        vertical-align: middle;
+        width: 800px;
+        height: 60px
+    }
+</style>
+<body style="width: 1024px;">
+<div>
+    <h2 class="lead">上游配置</h2>
+    <div class="item">
+        <label style="vertical-align: middle">第一句话：</label>
+        <textarea id="up_1" class="text"></textarea>
+    </div>
+    <div class="item">
+        <label style="">第二句话：</label>
+        <textarea id="up_2" class="text"></textarea>
+    </div>
+    <div class="item">
+        <label>第三句话：</label>
+        <textarea id="up_3" class="text"></textarea>
+    </div>
+    <div class="item">
+        <label>上游分数线：</label>
+        <input id="up_score" type="text" value="90">
+    </div>
+</div>
+<div>
+    <h2 class="lead">中游配置</h2>
+    <div class="item">
+        <label>第一句话：</label>
+        <textarea id="middle_1" class="text"></textarea>
+    </div>
+    <div class="item">
+        <label>第二句话：</label>
+        <textarea id="middle_2" class="text"></textarea>
+    </div>
+    <div class="item">
+        <label>第三句话：</label>
+        <textarea id="middle_3" class="text"></textarea>
+    </div>
+    <div class="item">
+        <label>中游分数线：</label>
+        <input id="middle_score" type="text" value="60">
+    </div>
+</div>
+<div>
+    <h2 class="lead">下游配置</h2>
+    <div class="item">
+        <label>第一句话：</label>
+        <textarea id="down_1" class="text"></textarea>
+    </div>
+    <div class="item">
+        <label>第二句话：</label>
+        <textarea id="down_2" class="text"></textarea>
+    </div>
+    <div class="item">
+        <label>第三句话：</label>
+        <textarea id="down_3" class="text"></textarea>
+    </div>
+</div>
+<div style="margin-left: 100px; padding-bottom: 200px; ">
+    <button class="btn btn-primary" onclick="get()">读取当前配置</button>
+    <button class="btn btn-primary" onclick="set()">保存修改的配置</button>
+    <div>
+        <p></p>
+        <table border="1" cellpadding="20">
+            <caption>参数修改说明</caption>
+            <tr>
+                <th>参数名称</th>
+                <th>参数说明</th>
+            </tr>
+            <tr>
+                <td>{{name}}</td>
+                <td>姓名</td>
+            </tr>
+            <tr>
+                <td>{{improveMin}}</td>
+                <td>最低提升分数</td>
+            </tr>
+            <tr>
+                <td>{{improveMax}}</td>
+                <td>最高提升分数</td>
+            </tr>
+            <tr>
+                <td>{{day}}</td>
+                <td>提升所需学习天数</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script async src="//cdn.bootcss.com/material-design-lite/1.2.1/material.min.js"></script>
+<script>
+    $(document).ready(get);
+    function get() {
+        $.ajax({
+            type: 'GET',
+            async: true,
+            url: '/rest/s/wxdemo2/config',
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == 900) {
+                    $("#up_1")[0].value = data.info.key1;
+                    $("#up_2")[0].value = data.info.key2;
+                    $("#up_3")[0].value = data.info.key3;
+                    $("#up_score")[0].value = data.info.score1;
+                    $("#middle_1")[0].value = data.info.key4;
+                    $("#middle_2")[0].value = data.info.key5;
+                    $("#middle_3")[0].value = data.info.key6;
+                    $("#middle_score")[0].value = data.info.score2;
+                    $("#down_1")[0].value = data.info.key7;
+                    $("#down_2")[0].value = data.info.key8;
+                    $("#down_3")[0].value = data.info.key9;
+                } else {
+                    console.log(data.msg);
+                    alert(data.msg);
+                }
+            },
+            error: function (xhr, statusText, error) {
+                if (xhr.status == 301 || xhr.status == 302) {
+                    window.location.href = '';
+                }
+            }
+        });
+    }
+    function set() {
+        var body = {
+            key1: $("#up_1")[0].value,
+            key2: $("#up_2")[0].value,
+            key3: $("#up_3")[0].value,
+            key4: $("#middle_1")[0].value,
+            key5: $("#middle_2")[0].value,
+            key6: $("#middle_3")[0].value,
+            key7: $("#down_1")[0].value,
+            key8: $("#down_2")[0].value,
+            key9: $("#down_3")[0].value,
+            score1: $("#up_score")[0].value,
+            score2: $("#middle_score")[0].value,
+        };
+        $.ajax({
+            type: 'POST',
+            async: true,
+            url: '/rest/s/wxdemo2/config',
+            data: body,
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == 900) {
+                    alert('配置修改成功.');
+
+                } else {
+                    console.log(data.msg);
+                    alert(data.msg);
+                }
+            },
+            error: function (xhr, statusText, error) {
+                alert(error);
+                if (xhr.status == 301 || xhr.status == 302) {
+                    window.location.href = '';
+                }
+            }
+        });
+    }
+</script>
+</html>

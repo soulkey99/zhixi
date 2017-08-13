@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <title>选择教材</title>
+    <link type="text/css" rel="stylesheet" href="css/selectBook.css">
+</head>
+<body>
+    <div data-bind="foreach: books" style="margin-bottom: 100px;">
+        <div class="bookInfo" data-bind="click: selectBook">
+            <img src="" data-bind="attr: {src: cover}">
+            <div class="bookTitle" data-bind="text: title==''?grade+subject:title"></div>
+        </div>
+    </div>
+    <div class="bg"></div>
+    <div class="selectedQuestionDiv">
+        <div class="header">
+            <div class="left">已选题目</div>
+            <div class="right" onclick="closeSelected()">关闭</div>
+        </div>
+        <div id="selectedQuestionList" class="selectedQuestionList" data-bind="foreach: selectedQuestions">
+            <div class="selectedQuestion">
+                <span data-bind="html: content.replace(/\$\$/g,'\$')"></span>
+                <img src="images/del.png" class="delImg" data-bind="click: delQuestion">
+            </div>
+        </div>
+    </div>
+    <div class="btn">
+        <div class="left">
+            <span class="selectedText">已选<span data-bind="text: selectedQuestions().length"></span></span>
+            <div class="changeBook" ontouchstart="changeBg(this,'#e5e5e5')" ontouchend="changeBg(this,'#ffffff')" onclick="changeBook()">换本书</div>
+            <div class="saveQuestions" style="background-color: #828c98;" data-bind="visible: selectedQuestions().length<=0">保存题目</div>
+            <div class="saveQuestions" ontouchstart="changeBg(this,'#4ac87d')" ontouchend="changeBg(this,'#52df8b')" onclick="subQuestions()" data-bind="visible: selectedQuestions().length>0">保存题目</div>
+        </div>
+        <!-- div class="right" id="rightBtn1" data-bind="visible: selectedQuestions().length<=0">完成</div>
+        <div class="right" id="rightBtn2" style="background-color: #52bf8b" ontouchstart="changeBg(this,'#4ac87d')" ontouchend="changeBg(this,'#52bf8b')" onclick="subQuestions()" data-bind="visible: selectedQuestions().length>0">完成</div -->
+    </div>
+    <img src="images/six.png" class="six" onclick="openSelected()">
+    <img src="images/book.png" class="book" onclick="openSelected()">
+</body>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/mathjax/2.0.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.bootcss.com/knockout/3.3.0/knockout-min.js"></script>
+<script src="//cdn.bootcss.com/Base64/1.0.0/base64.min.js"></script>
+<script src="//cdn.bootcss.com/swiftclick/2.0.0/swiftclick.min.js"></script>
+<script src="../lib/util.js"></script>
+<script src="js/selectBook.js"></script>
+</html>

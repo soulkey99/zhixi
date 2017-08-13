@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <link type="text/css" rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+    <link type="text/css" rel="stylesheet" href="css/subQuestion.css">
+</head>
+<body>
+    <div class="header">
+        <div class="selectNumDiv">&nbsp;</div>
+        <div class="selectNum">
+            <span class="numOut numIn" id="nowQuestion" onclick="selectNowNum()" data-bind="text: answeredQuestions().length+1"></span>
+        </div>
+        <div class="selectSign"></div>
+        <div class="numDiv" data-bind="foreach: answeredQuestions">
+            <span class="numOut" onclick="selectQuestion(this)" data-bind="text: num"></span>
+        </div>
+    </div>
+    <div id="main" class="main">
+        <div class="question"></div>
+        <div class="options"></div>
+    </div>
+    <div class="footer">
+        <div class="mainBtn" data-bind="visible: mainBtn">
+            <span id="btnText">查看题干</span>
+        </div>
+        <div class="mainQuestion" id="mainQuestion"></div>
+    </div>
+    <div class="note"></div>
+</body>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/mathjax/2.0.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.bootcss.com/knockout/3.3.0/knockout-min.js"></script>
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+<script src="../lib/util.js"></script>
+<script src="js/subQuestion.js"></script>
+</html>

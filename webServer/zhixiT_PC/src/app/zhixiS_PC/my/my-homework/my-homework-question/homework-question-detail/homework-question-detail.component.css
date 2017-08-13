@@ -1,0 +1,95 @@
+
+.dialog {
+    width: 550px;
+    height: 400px;
+}
+
+.bg {
+    height: 395px;
+    overflow:scroll;
+    overflow-x:hidden;
+    padding-bottom: 5px;
+}
+
+.close_div{
+    height:14px;
+}
+
+.close {
+    width: 12px;
+    height: 12px;
+}
+
+.question {
+    padding-bottom: 5%;
+}
+
+.question .content {
+    margin-top: 20px;
+}
+
+.question .status {
+    float: left;
+    font-size: 15px;
+    color: #ffffff;
+    width: 60px;
+    height: 35px;
+    text-align: center;
+}
+
+.question .status .qualified {
+    background: #55ee55;
+}
+
+.question .status .unqualified {
+    background: #F26262;
+}
+
+.question .status .pending {
+    background: #5555ee;
+}
+
+.question .point {
+    color: #7F8795;
+    font-size: 12px;
+    margin-left: 13px;
+}
+
+.step {
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.step .number {
+    width: 25px;
+    height: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background-color: #818A98;
+    color: white;
+    border-radius: 5px;
+}
+
+.step .right {
+    color: #818A98;
+    font-size: 14px;
+}
+
+.step .wrong {
+    color: #F66464;
+    font-size: 14px;
+}
+
+.step .option {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 5px;
+}

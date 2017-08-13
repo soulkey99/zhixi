@@ -1,0 +1,32 @@
+<div class="close_div">
+  <img class="close" (click)="hideQuestionDiv()" src="../../assets/images/setHomework/downArrow.png"/>
+</div>
+<div class="bg">
+  <div>
+    <div class="question">
+      <div>
+        <div class="status">
+          <div *ngIf="_data.status=='finished'&&_data.point>=100" class="qualified">合格</div>
+          <div *ngIf="_data.status=='finished'&&_data.point<100" class="unqualified">不合格</div>
+          <div *ngIf="_data.status=='pending'" class="pending">未完成</div>
+        </div>
+        <span class="point">掌握率<span>{{_data.point}}</span>%</span>
+      </div>
+      <div class="content" [innerHTML]="questionContent.split('$$').join('$')"></div>
+      <br/>
+    </div>
+  </div>
+  <div>
+    <div class="step" *ngFor='let step of steps'>
+      <div>
+        <label class="number">{{steps.indexOf(step)+1}}</label>
+        <span class="right" *ngIf="step.correct">回答正确</span>
+        <span class="wrong" *ngIf="!step.correct">回答错误</span>
+      </div>
+      <div class="content" [innerHTML]="step.content.split('$$').join('$')"></div>
+      <div *ngFor='let option of step.choice'>
+        <div class="option" [style.backgroundColor]="option.correct?'#50DE8B':step.choice_id==option.choice_id?'#F66364':'#C3D1DF'"  [innerHTML]="option.content.split('$$').join('$')"></div>
+      </div>
+    </div>
+  </div>
+</div>

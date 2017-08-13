@@ -1,0 +1,121 @@
+<div class="mdl-grid root">
+	<template #modalcontent let-c="close" let-d="dismiss">
+		<div class="modal-header">
+			<button type="button" class="close" aria-label="Close" (click)="d()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+			<h4 class="modal-title">提示：</h4>
+		</div>
+		<div class="modal-body">
+			<p>暂无数据！</p>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" (click)="c()">关闭</button>
+		</div>
+	</template>
+	<div class="mdl-cell--12-col select_grid" *ngIf="schedule_list.length>0">
+		<select class="select_schedule" id="schedules" required [(ngModel)]="selected_schedule_id" (ngModelChange)="onScheduleChange($event)">
+      <option *ngFor="let item of schedule_list" [value]="item.schedule_id">
+        <div>课时<label>{{item.seq}}</label> / <label>{{util.convertTime2DateStr(item.startAt)}}</label></div>
+      </option>
+    </select>
+	</div>
+	<div class="mdl-cell--12-col section_grid" *ngIf="schedule_list.length>0">
+		<div class="section_title">
+			<div class="text-with-green">作业完成度</div>
+		</div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+				<div class="row" style="height: 100%; background: grey; margin-right: 20px; border-radius: 3px; ">
+					<div style="height: 100%; background: #51e08b; border-radius: 3px; " [style.width]="finished_percent+'%'"></div>
+					<!--<ngb-progressbar type="info" [value]="finished_percent" [striped]="true" [max]="100" [animated]="true"></ngb-progressbar>-->
+				</div>
+			</div>
+			<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone"><label>作业完成率：{{finished_percent}}%</label></div>
+		</div>
+		<div>
+			<div class="section_title">
+				<img style="width: 24px; height: auto; vertical-align: middle; " src="../assets/images/icons/hexagonal.png" />
+				<span style="vertical-align: middle; ">一共{{stat.student_total-stat.student_finished}}人未提交</span>
+			</div>
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--1-col mdl-cell-avatar" *ngFor="let item of unfinished_student">
+					<img class="student_avatar_item" [src]="item.s_avatar || '../assets/images/classlist/default_avatar.png'" [alt]="item.s_nick"
+						[title]="item.s_nick" (click)="onStudentStatisticClick(item.s_id, 'statistic')" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mdl-cell--12-col section_grid" *ngIf="additional_swork.length>0">
+		<div class="section_title">
+			<div class="text-with-green">补充作业</div>
+		</div>
+		<div class="mdl-grid">
+			<div class="mdl-cell--2-col" *ngFor="let item of additional_swork" (click)="onStudentAdditionalClick(item.s_id, item.swork_id, 'additional')">
+				<div>
+					<div style="width: 45%; height: auto; display: inline-block; vertical-align: middle; ">
+						<img style="width: 100%; height: auto; " [src]="item.s_avatar || '../assets/images/classlist/default_avatar.png'" [alt]="item.s_nick"
+							[title]="item.s_nick" />
+					</div>
+					<div style="width: 45%; height: 100%; display: inline-block; vertical-align: middle; ">
+						<div>
+							<div class="font_grey" style="height: auto; ">{{item.s_nick}}</div>
+							<div class="font_grey2" style="height: auto; ">{{item.finished}}/{{item.total}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mdl-cell--12-col" style="margin-top: 32px; " *ngIf="stat.question_stat && stat.question_stat.length>0">
+		<div *ngFor="let item of stat.question_stat" class="inline_div" (click)="onWrongQuestion(item.q_id)">
+			<div class="tab_div" [style.background]="current_wrong_q_id == item.q_id ? '#ffffff': '#f7fafa'">
+				<span class="font_grey" *ngIf="current_wrong_q_id == item.q_id && item.seq<=4">错题</span>
+				<span [style.color]="current_wrong_q_id==item.q_id?'#535860':'#828b97'" *ngIf="item.seq <= 4">Top</span>
+				<span [class]="item.seq <= 4 ? 'mdl-chip__contact mdl-color-text--white top_num_background' : ''">{{item.seq}}</span>
+			</div>
+		</div>
+		<div style="background: #ffffff;">
+			<div id="question_content" style="padding: 70px; auto; " [innerHTML]="wrong_question_info.content ? wrong_question_info.content.split('$$').join('$'): '暂无错题！'">这里显示错题的题干</div>
+			<div style="text-align: center; ">
+				<div class="seperator_grey"></div>
+				<div class="seperator_blue"></div>
+				<div class="seperator_grey"></div>
+			</div>
+			<div class="section_grid">
+				<div class="section_title">
+					<div class="text-with-green">答错题的同学</div>
+				</div>
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--1-col mdl-cell-avatar" *ngFor="let stu of wrong_question_info.list" (click)="onStudentStatisticClick(stu.s_id, 'statistic')">
+						<img class="student_avatar_item" [src]="stu.s_avatar || '../assets/images/classlist/default_avatar.png'" [alt]="stu.s_nick"
+							[title]="stu.s_nick" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mdl-cell--12-col section_grid" *ngIf="all_student_stat && all_student_stat.length>0">
+		<div class="section_title">
+			<div class="text-with-green">学员情况统计</div>
+		</div>
+		<div class="mdl-grid">
+			<div *ngFor="let item of all_student_stat" class="mdl-cell mdl-cell--3-col" (click)="onStudentStatisticClick(item.s_id, 'statistic')">
+				<div>
+					<div class="inline_div" style="width: 35%; ">
+						<img class="student_avatar_item" [src]="item.s_avatar || '../assets/images/classlist/default_avatar.png'" [alt]="item.s_nick"
+							[title]="item.s_nick" />
+					</div>
+					<div class="inline_div" style="margin-left: 15px; color: #52595f; vertical-align: middle; ">
+						<div class="font_grey">{{item.s_nick}}</div>
+						<div class="font_grey2">
+							<!--<div>正确率：<label>{{((item.correct_count/item.question_total*100).toFixed(0))}}</label>%</div>-->
+							<div>正确：<label>{{item.correct_count}}</label>题</div>
+							<div>答错：<label>{{item.wrong_count}}</label>题</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

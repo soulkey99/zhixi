@@ -1,0 +1,59 @@
+<div class="add-class-root">
+  <div class="div-center">
+    <div class="title-ch">建立一个新班级</div>
+    <div class="title-en">Create a new class</div>
+    <div class="div-classname">
+      <input type="text" placeholder="班级名称" [(ngModel)]="className" required>
+      <select [(ngModel)]="textbook" (ngModelChange)="onTextbookChange()" required>
+          <option *ngFor="let textbook of textbooks">
+            <div>{{textbook}}</div>
+          </option> 
+        </select>
+    </div>
+    <div class="div-grade">
+      <select [(ngModel)]="grade" (ngModelChange)="onGradeChange()" required>
+          <option *ngFor="let grade of grades[textbookIndex]">
+            <div>{{grade}}</div>
+          </option>
+        </select>
+    </div>
+    <div class="div-date-text">
+      <span class="start-date">开班时间</span>
+      <span class="end-date">结束时间</span>
+    </div>
+    <div class="div-date">
+      <input class="start-date-input" type="date" [(ngModel)]=startDate>
+      <input class="end-date-input " type="date" [(ngModel)]="endDate">
+    </div>
+    <div class="div-date-text">
+      <span class="start-date">上课时间</span>
+      <span class="end-date">持续时间</span>
+    </div>
+    <div class="div-start-time ">
+      <select class="start-time-select" [(ngModel)]="startTime" (ngModelChange)="onStartTimeChange()">
+        <option *ngFor="let startTime of startTimes">
+          <div>{{startTime}}</div>
+        </option>
+      </select>
+      <select class="duration-select " [(ngModel)]="duration" (ngModelChange)="onDurationChange()" required>
+        <option *ngFor="let duration of durations">
+          <div>{{duration}}</div>
+        </option>
+      </select>
+    </div>
+    <div class="div-weekday-text">
+      <span class="start-date">课时安排 (多选)</span>
+    </div>
+    <div class="div-weekday">
+      <span *ngFor="let weekday of weekdays" class="weekday" [class.weekday-selected]="isWeekdaySelected(weekday)" (click)="weekdaySelected(weekday)">
+      {{weekday}}
+      </span>
+      <span class="week-frequency-every" [class.week-frequency-every-selected]="isEveryWeekSelected()" (click)="everyWeekSelected(true)">
+        <img class="week-frequency-image" [attr.src]="isEveryWeekSelected()?'../../../assets/images/schedule_week_selected.png':'../../../assets/images/schedule_week_default.png'">每周</span>
+      <span class="week-frequency-double" [class.week-frequency-double-selected]="!isEveryWeekSelected()" (click)="everyWeekSelected(false)">
+        <img class="week-frequency-image" [attr.src]="isEveryWeekSelected()?'../../../assets/images/schedule_week_default.png':'../../../assets/images/schedule_week_selected.png'">双周</span>
+    </div>
+    <button (click)="addClass()">建立</button>
+  </div>
+  <img class="close-image" src="../../../assets/images/setHomework/closeBtn.png" (click)="dialogRef.close()">
+</div>

@@ -1,0 +1,36 @@
+<div class="mdl-grid" style="max-width: 1000px;min-height: 83.5vh;">
+  <chart class="left" [options]="options"></chart>
+  <div class="right">
+    <div>共答题{{total}}道</div>
+    <div>
+      <div class="kind">
+        <div class="colorBlock" style="background-color: #f968f1"></div>
+        <div class="num">
+          <div>完美{{(perfect/total*100).toFixed(1)}}%</div>
+          <div>{{perfect}}道</div>
+        </div>
+      </div>
+      <div class="kind">
+        <div class="colorBlock" style="background-color: #6ae1f3"></div>
+        <div class="num">
+          <div>优秀{{(excellent/total*100).toFixed(1)}}%</div>
+          <div>{{excellent}}道</div>
+        </div>
+      </div>
+      <div class="kind">
+        <div class="colorBlock" style="background-color: #4289ff"></div>
+        <div class="num">
+          <div>及格{{(pass/total*100).toFixed(1)}}%</div>
+          <div>{{pass}}道</div>
+        </div>
+      </div>
+      <div class="kind">
+        <div class="colorBlock" style="background-color: #4759bd"></div>
+        <div class="num">
+          <div>不及格{{(fail/total*100).toFixed(1)}}%</div>
+          <div>{{fail}}道</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

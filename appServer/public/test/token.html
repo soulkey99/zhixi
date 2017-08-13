@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div>access_token=<label id="token"></label></div>
+<br/>
+<button onclick="student()">student</button>
+<button onclick="teacher()">teacher</button>
+</body>
+<script>
+    function student() {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '/rest/s/accessToken',
+            data: JSON.stringify({refresh_token: '9e8b00d8c65bcc5250f82dda219cd3cf4140b4f0b3eae0bb'}),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (data, textStatus, jqXHR) {
+                if (data.code == 900) {
+                    $("#token").html(data.access_token);
+                } else {
+                    alert(data.msg);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseJSON.msg);
+            }
+        });
+    }
+    function teacher() {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '/rest/t/accessToken',
+            data: JSON.stringify({refresh_token: '5f438f9ece70580529008af972a1932aca2568ebc09a338f'}),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (data, textStatus, jqXHR) {
+                if (data.code == 900) {
+                    $("#token").html(data.access_token);
+                } else {
+                    alert(data.msg);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseJSON.msg);
+            }
+        });
+    }
+</script>
+</html>

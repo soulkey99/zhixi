@@ -1,0 +1,84 @@
+.main {
+    text-align: center;
+    margin: 0px auto;
+}
+.checkMsg {
+    margin: 0px auto;
+}
+.loginBtn {
+    margin: 0px auto;
+    background: #3f51b5;
+}
+.bg {
+    /* max-width: 1000px; */
+    width: 100%;
+    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url("../../assets/images/login/loginBg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 0% 0% 0% 0%;
+}
+.loginDiv {
+    position: relative;
+    background: white;
+}
+.titleImg {
+    position: absolute;
+    width: 50%;
+    top: 10%;
+    left: -15%;
+}
+.loginText {
+    font-size: 2.5rem;
+    color: #535860;
+    width: 80%;
+    margin: 40% 10% 0 10%;
+}
+.inputDiv {
+    width: 80%;
+    margin: 10% 10% 0 10%;
+    padding-bottom: 2%;
+    border-bottom: 1px #e8ecf1 solid;
+}
+input {
+    border: 0px;
+    width: 100%;
+    font-size: 1.5rem;
+    color: #828b97;
+}
+.btnDiv {
+    width: 100%;
+    margin-top: 45%;
+    text-align: center;
+}
+.btnDiv button {
+    background-color: #4289ff;
+}
+.regedit {
+    font-size: 1rem;
+    color: #4289ff;
+    width: 100%;
+    text-align: center;
+    margin-top: 12%;
+    cursor: pointer;
+}
+#regedit .inputDiv {
+    margin: 6% 10% 0 10%;
+}
+.userrelDiv {
+    width: 80%;
+    margin: 5% 10% 0 10%;
+}
+.userRel {
+    width: 50%;
+    float: left;
+    color: #828b97;
+    font-size: 0.8rem;
+}
+.login {
+    width: 50%;
+    float: right;
+    text-align: right;
+}

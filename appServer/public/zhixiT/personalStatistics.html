@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ta的错题</title>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <link type="text/css" rel="stylesheet" href="css/personalStatistics.css">
+</head>
+<body>
+    <div class="header">
+        <img src="images/againLeft.png" class="againLeft" onclick="setHomeworkAgain()">
+        <div class="againLeftText" onclick="setHomeworkAgain()">补充作业</div>
+        <img src="" data-bind="attr: {src: s_avatar}">
+        <img src="images/againRight.png" class="againRight" onclick="homeworkAgainList()">
+        <div class="againRightText" onclick="homeworkAgainList()">作业情况</div>
+    </div>
+    <div class="name" data-bind="text: s_nick"></div>
+    <div class="score">正确率<span data-bind="text: num"></span>%</div>
+    <div id="main" class="main" data-bind="foreach: questions">
+        <div class="questionDiv" data-bind="click: questionDetails">
+            <div>
+                <div class="status1" data-bind="visible: status=='pending'">未完成</div>
+                <div class="status1 status2" data-bind="visible: point!='100' && status=='finished'">未合格</div>
+                <div class="status1 status3" data-bind="visible: point=='100'">合格</div>
+                <div class="point">掌握率<span data-bind="text: point"></span>%</div>
+            </div>
+            <span data-bind="html: info.content.replace(/\$\$/g,'\$')"></span>
+        </div>
+    </div>
+    <div class="feedback" ontouchstart="changeBg(this,'#52bf8b')" ontouchend="changeBg(this,'#52df8b')" onclick="feedback()"></div>
+</body>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/mathjax/2.0.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdn.bootcss.com/knockout/3.3.0/knockout-min.js"></script>
+<script src="//cdn.bootcss.com/Base64/1.0.0/base64.min.js"></script>
+<script src="//cdn.bootcss.com/swiftclick/2.0.0/swiftclick.min.js"></script>
+<script src="../lib/util.js"></script>
+<script src="js/personalStatistics.js"></script>
+</html>

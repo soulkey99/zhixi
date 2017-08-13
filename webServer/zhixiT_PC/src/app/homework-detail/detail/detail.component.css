@@ -1,0 +1,66 @@
+
+.bg {
+    height: 395px;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.userinfo .avatar {
+    width: 55px;
+    height: 55px;
+    float: left;
+    margin-right: 8px;
+    border-radius: 28px;
+}
+
+.userinfo .nick {
+    font-size: 10px;
+    color: #212121;
+}
+
+.userinfo .percent {
+    font-size: 10px;
+    color: #757F8C;
+}
+
+.userinfo .action_btn {
+    width: 72px;
+    height: 20px;
+    font-size: 8px;
+    color: #ffffff;
+    background-color: #4189FF;
+    border:none;
+    outline:none;
+}
+
+.homework {
+    background-color: #f0f2f6;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.homework .status {
+    font-size: 10px;
+    position: absolute;
+    color: #ffffff;
+    width: 40px;
+    height: 15px;
+    text-align: center;
+}
+
+.homework .content {
+    padding: 5% 5% 5% 5%;
+}
+
+.homework .status .qualified {
+    background: #55ee55;
+}
+
+.homework .status .unqualified {
+    background: #F26262;
+}
+
+.homework .status .pending {
+    background: #5555ee;
+}

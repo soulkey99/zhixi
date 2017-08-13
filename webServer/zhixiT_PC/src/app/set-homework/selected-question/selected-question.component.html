@@ -1,0 +1,11 @@
+<div class="main">
+  <div class="title1">查看预留作业</div>
+  <div class="title2">View the reserved jobs</div>
+  <div *ngFor="let question of questions">
+    <div class="questionDiv">
+      <div class="question" [innerHTML]="question.content.split('$$').join('$')"></div>
+      <img class="delBtn" src="../../assets/images/setHomework/delBtn.png" (click)="delQuestion(question)">
+    </div>
+  </div>
+  <img class="closeBtn" src="../../assets/images/setHomework/closeBtn.png" (click)="dialogRef.close()">
+</div>

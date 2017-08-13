@@ -1,0 +1,41 @@
+<div class="mdl-grid" *ngIf="startQuestion == 'startQuestion'">
+  <div class="subDiv">题干&nbsp;&nbsp;难易度{{mainQuestionDiff}}</div>
+  <div class="subDiv" [innerHTML]="mainQuestion">题干内容</div>
+  <div class="subDiv">
+    <span class="numDiv" *ngFor="let answeredQuestion of answeredQuestions" (click)="oldQuestion(answeredQuestion)">{{answeredQuestions.indexOf(answeredQuestion)+1}}</span>
+  </div>
+  <div *ngFor="let nowQuestion of nowQuestions">
+    <div class="mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone subDiv" [innerHTML]="nowQuestion.content.split('$$').join('$')"></div>
+    <div class="subDiv" *ngIf="nowQuestion.q_id == nowQ_id">
+      <!-- div class="choice" *ngFor="let choiceone of nowQuestion.choice" [innerHTML]="choiceone.flag+'.'+choiceone.content.split('$$').join('$')" [style.border]="choice_id == choiceone.choice_id?'1px red solid':'0px'" (click)="selectChoice(choiceone)"></div -->
+      <div *ngFor="let choiceone of nowQuestion.choice">
+        <mdl-chip mdl-label="Contact Chip" [mdl-label]="choiceone.content.split('$$').join('$')" (click)="selectChoice(choiceone)">
+          <span mdl-chip-contact class="mdl-color--blue mdl-color-text--white" [style.border]="choice_id == choiceone.choice_id?'1px black solid':'1px #2196f3 solid'">{{choiceone.flag}}</span>
+        </mdl-chip>
+      </div>
+    </div>
+    <div class="subDiv" *ngIf="nowQuestion.q_id != nowQ_id">
+      <div *ngFor="let choiceone of nowQuestion.choice">
+        <!-- div class="choice" *ngFor="let choiceone of nowQuestion.choice" [innerHTML]="choiceone.flag+'.'+choiceone.content.split('$$').join('$')" [style.border]="choiceone.correct == true?'1px red solid':'0px'"></div -->
+        <mdl-chip mdl-label="Contact Chip" [mdl-label]="choiceone.content.split('$$').join('$')">
+          <span mdl-chip-contact class="mdl-color--blue mdl-color-text--white" [style.border]="choiceone.correct == true?'1px black solid':'1px #2196f3 solid'">{{choiceone.flag}}</span>
+        </mdl-chip>
+      </div>
+    </div>
+    <div class="subDiv" *ngIf="nowQuestion.q_id == nowQ_id">
+      <button (click)="subChoice()" mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple>确定</button>
+    </div>
+  </div>
+</div>
+
+<div class="mdl-grid" *ngIf="startQuestion == 'result'">
+  掌握度:{{percent}}%
+  <button (click)="gotoNextQuestion()" mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple>下一题</button>
+</div>
+
+
+<!--<p>
+  do-homework works!
+
+  <button (click)="onQuestionClick()">question</button>
+</p>-->

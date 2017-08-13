@@ -1,0 +1,20 @@
+.main {
+    width: 1000px;
+    height: 83vh;
+    overflow: scroll;
+    margin: 0px auto;
+}
+.book {
+    padding: 2%;
+    text-align: center;
+    cursor: pointer;
+}
+.book img {
+    width: 70%;
+}
+.bookTitle {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #535860;
+    margin-top: 10px;
+}
